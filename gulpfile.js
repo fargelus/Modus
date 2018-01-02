@@ -8,6 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
+const imagemin = require('gulp-imagemin');
 
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
@@ -25,6 +26,11 @@ const paths = {
 
   styles: {
     src: 'src/scss/**/*.scss'
+  },
+
+  images: {
+    src: 'src/imgs/*',
+    dest: './build/imgs/'
   }
 };
 
@@ -72,9 +78,16 @@ gulp.task('browserSync', () => {
 gulp.task('watch', () => {
   gulp.watch(paths.pug.all, ['pug']);
   gulp.watch(paths.styles.src, ['scss']);
+  gulp.watch(paths.images.src, ['imagemin']);
 });
 
-gulp.task('start', ['clean', 'pug', 'scss']);
+gulp.task('imagemin', () => {
+  return gulp.src(paths.images.src)
+    .pipe(imagemin())
+    .pipe(gulp.dest(paths.images.dest));
+});
+
+gulp.task('start', ['clean', 'pug', 'scss', 'imagemin']);
 
 gulp.task('default', ['start', 'browserSync', 'watch']);
 
