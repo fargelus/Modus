@@ -1,3 +1,5 @@
+@import "vars";
+
 .text-bold {
 	font-weight: 700;
 }
@@ -23,4 +25,40 @@
 
 .text-upper{
 	text-transform: uppercase;
+}
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+h1 {
+	font-size: 76px;
+	line-height: 1.09;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h2 {
+	font-size: 30px;
+	line-height: .6;
+	position: relative;
+	padding-bottom: 30px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		height: 4px;
+		width: 70px;
+		bottom: 0;
+		left: calc(50% - 35px);
+		background-color: $orange;
+	}
+}
+
+h3 {
+	font-size: 20px;
+	line-height: 1.1;
 }

@@ -1,0 +1,29 @@
+@import "../base/vars";
+
+.prior-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+  text-transform: uppercase;
+  align-items: center;
+
+  &__menu-item {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  &__menu-item:first-child {
+    margin-left: 0;
+  }
+
+  &__link {
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &__logo-img {
+    color: $orange;
+  }
+}

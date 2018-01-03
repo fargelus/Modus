@@ -10,7 +10,18 @@ $desc: "only screen and (max-width: #{$descSize})";
 $more-desc: "only screen and (min-width: #{$descSize + 1})";
 $tablet: "only screen and (max-width: #{$tabletSize})";
 $more-tablet: "only screen and (min-width: #{$tabletSize + 1})";
-$mobile: "only screen and (max-width: #{$mobileSize})"; 
+$mobile: "only screen and (max-width: #{$mobileSize})";
 $more-mobile: "only screen and (min-width: #{$mobileSize + 1})";
 $small: "only screen and (max-width: #{$smallSize})";
 $more-small: "only screen and (min-width: #{$smallSize + 1})";
+
+// Colors
+$orange: #E75926;
+$lightOrange: #cf5022;
+$darkOrange: #a13e1a;
+
+$ground: #333;
+$gray: #555;
+$lightGray: #777;
+
+$snow: #f6f6f6;

@@ -2,11 +2,16 @@
 
 // layouts
 @import "base/vars";
-@import "base/mixins";
 @import "base/typography";
+@import "base/mixins";
 @import "modificators/modificators";
 @import "base/fonts";	// use createFontFace(fontFamily)
+@import "base/colors";
 
-@import "../../node_modules/foundation-sites/scss/foundation";
-@include foundation-global-styles;
-@include foundation-xy-grid-classes;
+
+// blocks
+@import "blocks/prior-nav";
+@import "blocks/main-menu";
+@import "blocks/logo";
+@import "blocks/intro";
+@import "blocks/button";

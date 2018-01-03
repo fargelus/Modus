@@ -1,0 +1,38 @@
+main.main
+  .about.text-theme-canvas
+    h2.about__title About us
+    
+    .about__img
+      img(src="imgs/about.jpg", width="600", height="400", alt="conversation")
+    
+    .about__text
+      .about__text-block
+        h3 Who We Are
+        p.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+          ante facilisis bibendum dolor feugiat at. 
+          Duis sed dapibus leo nec ornare diam commodo nibh.        
+        p.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+          ante facilisis bibendum.
+    
+      .about__text-block
+        h3 What We Do
+        p.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+          ante facilisis bibendum dolor feugiat at. 
+          Duis sed dapibus leo nec ornare diam commodo nibh.        
+        
+        ul.checklist
+          -
+           var listNames = ['Lorem ipsum dolor sit amet',
+           'Consectetur adipiscing commodo',
+           'Duis sed dapibus leo sed dapibus',
+           'Sed commodo nibh ante bibendum'];
+          
+          each val in listNames
+            li=val
+      

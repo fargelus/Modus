@@ -1,0 +1,29 @@
+@import "../base/vars";
+
+.about {
+  &__title {
+    margin-bottom: 70px;
+  }
+
+  &__img {
+    float: left;
+    width: 30%; // От своей собственной ширины
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    columns: 2 200px;
+  }
+
+  &__text-block {
+    margin-left: 30px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  background-color: $snow;
+}

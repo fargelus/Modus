@@ -1,0 +1,30 @@
+@import "vars";
+
+.bg-theme-ground {
+  background-color: $ground;
+}
+
+.mark {
+  color: $orange;
+  text-shadow: 0 3px 0 $darkOrange;
+}
+
+.text-theme-image {
+  h2, h3 {
+    color: $snow;
+  }
+
+  p {
+    color: rgba(255, 255, 255, .7);
+  }
+}
+
+.text-theme-canvas {
+  h2, h3 {
+    color: $gray;
+  }
+
+  p, ul {
+    color: $lightGray;
+  }
+}

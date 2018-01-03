@@ -1,0 +1,9 @@
+@import "../base/mixins";
+
+.main-menu {
+  list-style: none;
+  &__link {
+    @include reset-link;
+    cursor: pointer;
+  }
+}

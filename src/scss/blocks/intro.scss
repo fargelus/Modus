@@ -1,0 +1,22 @@
+.intro {
+  &__description {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  &__button {
+    margin-top: 75px;
+  }
+
+  min-height: 600px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(imgs/intro-bg.jpg);
+  background-size: cover;
+
+  color: white;
+}
