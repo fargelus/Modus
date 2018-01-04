@@ -1,4 +1,5 @@
 @import "../base/vars";
+@import "../base/mixins";
 
 .about {
   &__title {
@@ -26,4 +27,6 @@
   }
 
   background-color: $snow;
+
+  @include clearfix;
 }

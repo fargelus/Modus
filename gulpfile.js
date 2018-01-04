@@ -89,6 +89,6 @@ gulp.task('imagemin', () => {
 
 gulp.task('start', ['clean', 'pug', 'scss', 'imagemin']);
 
-gulp.task('default', ['start', 'browserSync', 'watch']);
+gulp.task('default', ['start', 'watch', 'browserSync']);
 
 // ***********************************

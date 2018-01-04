@@ -1,5 +1,7 @@
 .main {
   & > div {
-    padding-top: 80px;
+    $paddingVal: 120px;
+    padding-top: $paddingVal;
+    padding-bottom: $paddingVal;
   }
 }

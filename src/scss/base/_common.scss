@@ -1,0 +1,12 @@
+body {
+  background-color: #eee;
+  box-sizing: border-box;
+}
+
+.wrapped {
+  & > * {
+    $paddingVal: 40px;
+    padding-left: $paddingVal;
+    padding-right: $paddingVal;
+  }
+}

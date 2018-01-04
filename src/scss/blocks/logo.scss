@@ -1,5 +1,11 @@
+@import "../base/vars";
+
+.icon {
+   color: $orange;
+}
+
 .logo {
-  &__img {
+  .icon {
     margin-right: 15px;
   }
 

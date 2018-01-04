@@ -1,4 +1,4 @@
-main.main
+main.main.wrapped
   .about.text-theme-canvas
     h2.about__title About us
     
@@ -35,4 +35,45 @@ main.main
           
           each val in listNames
             li=val
-      
+  
+  .services.text-theme-image
+    h2 Our services
+    
+    .services__icon-text-table.icon-text-table
+      -
+        // Title: classname
+        var icons = {
+          'Web Design': 'fa-desktop',
+          'Web Development': 'fa-cogs',
+          'App Design': 'fa-tablet',
+          'PSD to HTML5': 'fa-html5',
+          'WordPress': 'fa-wordpress',
+          'Marketing': 'fa-bullhorn',
+          'Branding': 'fa-rocket',
+          'Print Design': 'fa-leaf',
+        }
+        
+      each val, key in icons
+        .services__icon-text-item.icon-text-item
+          .icon-text-item__img
+            i(class="icon fa " + val)
+          h3.icon-text-item__title=key
+          p.icon-text-item__description.
+            Lorem ipsum dolor sit amet placerat facilisis 
+            felis mi in tempus eleifend pellentesque 
+            natoque etiam.
+  
+  .portfolio.text-theme-canvas
+    h2 Our portfolio
+    p(class="text-center").
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.
+    
+    .cards
+      .tabs
+        -
+          var tabLinkNames = ['All', 'Web Design',
+          'Web Development', 'Branding'];
+        each val in tabLinkNames
+          a(href='#').tab-link=val
+            
