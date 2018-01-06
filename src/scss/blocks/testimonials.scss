@@ -1,0 +1,44 @@
+.testimonials-wrapper {
+  background-image: url('imgs/testimonials-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .testimonials {
+    &__item {
+      max-width: 320px;
+    }
+
+    $ivory: rgba(255, 255, 255, .3);
+
+    &__item-icon {
+      color: $ivory;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    &__item-quote {
+      padding-bottom: 20px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 25%;
+        bottom: 0px;
+        width: 50%;
+        height: 1px;
+        background-color: $ivory;
+      }
+    }
+
+    &__item-author-info {
+      padding-top: 5px;
+    }
+
+    &__item-author {
+      display: block;
+    }
+
+
+  }
+}

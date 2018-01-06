@@ -1,6 +1,6 @@
-main.main.wrapped
+main.main.wrapped.block
   .about.text-theme-canvas
-    h2.about__title About us
+    h2.mb70 About us
     
     .about__img
       img(src="imgs/about.jpg", width="600", height="400", alt="conversation")
@@ -39,7 +39,7 @@ main.main.wrapped
   .services.text-theme-image
     h2 Our services
     
-    .services__icon-text-table.icon-text-table
+    .services__icon-text-table.row
       -
         // Title: classname
         var icons = {
@@ -65,15 +65,123 @@ main.main.wrapped
   
   .portfolio.text-theme-canvas
     h2 Our portfolio
-    p(class="text-center").
+    p(class="text-center").mt30
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.
     
     .cards
-      .tabs
+      .tabs.cards__tabs
         -
           var tabLinkNames = ['All', 'Web Design',
           'Web Development', 'Branding'];
         each val in tabLinkNames
-          a(href='#').tab-link=val
+          button.button.button--tab.tabs__button=val
+      
+      .cards-deck.row
+        -
+          var n = 0, imageNumber = 8, base = 'portfolio_0';
+        while ++n < (imageNumber + 1)
+          - var imgSrc = './imgs/' + base + n + '.jpg';
+          //- - var classname = 'cards-deck__item-' + n;
+          .cards-deck__item
+            img(src=imgSrc, width="600", height="420", alt="some stuff")
             
+            .cards-deck__item-info.text-theme-image
+              h4 Project title
+              -
+                var textValue = '';
+                switch (n) {
+                  case 1:
+                  case 3:
+                  case 4:
+                  case 5:
+                    textValue = 'Web Design';
+                    break;
+                  case 2:
+                  case 6:
+                    textValue = 'Web Development';
+                    break;
+                  case 7:
+                    textValue = 'Web Development, Branding';
+                    break;
+                  case 8:
+                    textValue = 'Branding';
+                    break;
+                  default:
+                    break;
+                }
+              
+              p=textValue
+              
+  .team.text-theme-canvas.bg-theme-gainsboro
+    h2 Meet the team
+    p(class="mt30 text-center").
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Duis sed dapibus leo nec ornare diamcommodo nibh ante
+      facilisis.
+    
+    .team__members.row.mt30
+      -
+        var teamNumber = 4, i = 0,
+        imgPath = './imgs/',
+        base = 'team_0',
+        photoCaptions = {};
+        photoCaptions['1'] = {};
+        photoCaptions['1']['title'] = 'John Doe';
+        photoCaptions['1']['text'] = 'Founder / CEO';
+        photoCaptions['2'] = {};
+        photoCaptions['2']['title'] = 'Mike Doe';
+        photoCaptions['2']['text'] = 'Web Designer';
+        photoCaptions['3'] = {};
+        photoCaptions['3']['title'] = 'Jane Doe';
+        photoCaptions['3']['text'] = 'Creative Director';
+        photoCaptions['4'] = {};
+        photoCaptions['4']['title'] = 'Larry Show';
+        photoCaptions['4']['text'] = 'Project Manager';
+        
+      while i++ < teamNumber
+        - var imgSrc = imgPath + base + i + '.jpg';
+        figure.figure
+          img(src=imgSrc, class="photo", width="225", height="225", alt="member photo")
+          figcaption.figcaption.text-center
+            h3.figcaption__title=photoCaptions[i]['title']
+            p.figcaption__text=photoCaptions[i]['text']
+  
+  .testimonials-wrapper.text-theme-image
+    h2.mb70 What our clients say
+    
+    .testimonials.row
+      -
+       var testimonialsContent = {};
+       testimonialsContent['0'] = {};
+       testimonialsContent['0']['cite'] = 'Lorem ' + 
+       ' ipsum dolor sit amet,' + 'consectetur adipiscing elitduis ' +
+       'sed dapibus leo nec ornare.';
+       testimonialsContent['0']['author'] = 'John Doe';
+       testimonialsContent['0']['company'] = 'CEO, Company Inc.';
+       
+       testimonialsContent['1'] = {};
+       testimonialsContent['1']['cite'] = 'Lorem ' + 
+       ' ipsum dolor sit amet,' + 'consectetur adipiscing elitduis ' +
+       'sed dapibus leo nec ornare.';
+       testimonialsContent['1']['author'] = 'Jane Doe';
+       testimonialsContent['1']['company'] = 'CEO, Company Inc.';
+       
+       testimonialsContent['2'] = {};
+       testimonialsContent['2']['cite'] = 'Lorem ' + 
+       ' ipsum dolor sit amet,' + 'consectetur adipiscing elitduis ' +
+       'sed dapibus leo nec ornare.';
+       testimonialsContent['2']['author'] = 'Chris Smith';
+       testimonialsContent['2']['company'] = 'CEO, Company Inc.';
+       
+       var index = -1,
+       testimonialsNum = Object.keys(testimonialsContent).length;
+       
+      while index++ < (testimonialsNum - 1)
+          .testimonials__item.text-center
+            i.fa.fa-quote-left.testimonials__item-icon
+            blockquote.testimonials__item-quote=testimonialsContent[index]['cite']
+            .testimonials__item-author-info
+              b.testimonials__item-author=testimonialsContent[index]['author']
+              i.testimonials__item-company=testimonialsContent[index]['company']
+  

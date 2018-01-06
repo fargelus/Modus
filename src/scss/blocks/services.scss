@@ -1,12 +1,3 @@
-.icon-text-table {
-  display: flex;
-  flex-flow: row wrap;
-
-  justify-content: center;
-
-  text-align: center;
-}
-
 .icon-text-item {
   .icon {
     font-size: 36px;
@@ -15,6 +6,8 @@
   &__img {
     margin-bottom: 20px;
   }
+
+  text-align: center;
 }
 
 .services {

@@ -1,0 +1,9 @@
+.figure {
+  .figcaption {
+    padding-top: 20px;
+    &__title {
+      font-size: 16px;
+      line-height: 1.1;
+    }
+  }
+}

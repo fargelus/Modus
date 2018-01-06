@@ -2,18 +2,9 @@
 @import "../base/mixins";
 
 .about {
-  &__title {
-    margin-bottom: 70px;
-  }
-
   &__img {
     float: left;
     width: 30%; // От своей собственной ширины
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
   }
 
   &__text {

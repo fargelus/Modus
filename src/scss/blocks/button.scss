@@ -25,4 +25,22 @@
 	&:hover {
 		background-color: $darkOrange;
 	}
+
+	&--tab {
+		background-color: transparent;
+		color: $lightGray;
+		font-weight: normal;
+		padding: 8px 16px;
+    border-right: 2px;
+		border: 1px solid #ccc;
+		border-radius: 2px;
+		font-size: 14px;
+
+		&:hover, &:focus{
+      background-color: $lightOrange;
+      color: $snow;
+			border-color: $lightOrange;
+			outline: none;
+    }
+	}
 }

@@ -4,17 +4,21 @@
   background-color: $ground;
 }
 
+.bg-theme-gainsboro {
+  background-color: $gainsboro;
+}
+
 .mark {
   color: $orange;
   text-shadow: 0 3px 0 $darkOrange;
 }
 
 .text-theme-image {
-  h2, h3 {
+  h2, h3, h4 {
     color: $snow;
   }
 
-  p {
+  p, blockquote, b, i:not(.fa) {
     color: rgba(255, 255, 255, .7);
   }
 }

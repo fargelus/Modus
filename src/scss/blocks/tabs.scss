@@ -1,0 +1,10 @@
+.tabs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
+  &__button {
+    margin-left: 20px;
+  }
+}

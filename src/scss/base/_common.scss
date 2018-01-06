@@ -1,6 +1,23 @@
+@import "vars";
+
 body {
   background-color: #eee;
   box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.photo {
+  border: 5px solid $snow;
 }
 
 .wrapped {
@@ -9,4 +26,20 @@ body {
     padding-left: $paddingVal;
     padding-right: $paddingVal;
   }
+}
+
+.block {
+  & > div {
+    $paddingVal: 120px;
+    padding-top: $paddingVal;
+    padding-bottom: $paddingVal;
+  }
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb70 {
+  margin-bottom: 70px;
 }
