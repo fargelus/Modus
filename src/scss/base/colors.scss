@@ -1,34 +1,31 @@
 @import "vars";
 
+.mark {
+  color: $orange;
+  text-shadow: 0 3px 0 $darkOrange;
+}
+
+.theme-image {
+  color: rgba(255, 255, 255, .7);
+
+  &__title {
+    color: $snow;
+  }
+}
+
+.theme-canvas {
+  color: $lightGray;
+  background-color: $snow;
+
+  &__title {
+    color: $gray;
+  }
+}
+
 .bg-theme-ground {
   background-color: $ground;
 }
 
 .bg-theme-gainsboro {
   background-color: $gainsboro;
-}
-
-.mark {
-  color: $orange;
-  text-shadow: 0 3px 0 $darkOrange;
-}
-
-.text-theme-image {
-  h2, h3, h4 {
-    color: $snow;
-  }
-
-  p, blockquote, b, i:not(.fa) {
-    color: rgba(255, 255, 255, .7);
-  }
-}
-
-.text-theme-canvas {
-  h2, h3 {
-    color: $gray;
-  }
-
-  p, ul {
-    color: $lightGray;
-  }
 }

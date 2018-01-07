@@ -2,7 +2,7 @@ header.header.wrapped
   nav.prior-nav.bg-theme-ground
     a.logo <i class="icon fa fa-paper-plane-o"></i>Modus
 
-    ul.prior-nav__main-menu.main-menu
+    ul.list
       - 
         var listNames = {
           'About': '#about',
@@ -14,7 +14,7 @@ header.header.wrapped
           };
       each address, name in listNames
         li.prior-nav__menu-item
-          a(href=address).main-menu__link.prior-nav__link=name
+          a(href=address).link=name
 
   .intro
     h1 We are 

@@ -1,13 +1,13 @@
 main.main.wrapped.block
-  .about.text-theme-canvas
-    h2.mb70 About us
+  section.about.theme-canvas
+    h2.mb70.theme-canvas__title About us
     
     .about__img
       img(src="imgs/about.jpg", width="600", height="400", alt="conversation")
     
     .about__text
       .about__text-block
-        h3 Who We Are
+        h3.theme-canvas__title Who We Are
         p.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
           Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
@@ -36,8 +36,8 @@ main.main.wrapped.block
           each val in listNames
             li=val
   
-  .services.text-theme-image
-    h2 Our services
+  section.services.theme-image
+    h2.theme-image__title Our services
     
     .services__icon-text-table.row
       -
@@ -57,15 +57,15 @@ main.main.wrapped.block
         .services__icon-text-item.icon-text-item
           .icon-text-item__img
             i(class="icon fa " + val)
-          h3.icon-text-item__title=key
+          h3.theme-image__title=key
           p.icon-text-item__description.
             Lorem ipsum dolor sit amet placerat facilisis 
             felis mi in tempus eleifend pellentesque 
             natoque etiam.
   
-  .portfolio.text-theme-canvas
-    h2 Our portfolio
-    p(class="text-center").mt30
+  section.portfolio.theme-canvas
+    h2.theme-canvas__title Our portfolio
+    p(class="text-center").mt30.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.
     
@@ -86,8 +86,8 @@ main.main.wrapped.block
           .cards-deck__item
             img(src=imgSrc, width="600", height="420", alt="some stuff")
             
-            .cards-deck__item-info.text-theme-image
-              h4 Project title
+            .cards-deck__item-info.theme-image
+              h4.theme-image__title Project title
               -
                 var textValue = '';
                 switch (n) {
@@ -113,8 +113,8 @@ main.main.wrapped.block
               
               p=textValue
               
-  .team.text-theme-canvas.bg-theme-gainsboro
-    h2 Meet the team
+  section.team.theme-canvas.bg-theme-gainsboro
+    h2.theme-canvas__title Meet the team
     p(class="mt30 text-center").
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Duis sed dapibus leo nec ornare diamcommodo nibh ante
@@ -144,11 +144,11 @@ main.main.wrapped.block
         figure.figure
           img(src=imgSrc, class="photo", width="225", height="225", alt="member photo")
           figcaption.figcaption.text-center
-            h3.figcaption__title=photoCaptions[i]['title']
-            p.figcaption__text=photoCaptions[i]['text']
+            .theme-canvas__title.figcaption__title=photoCaptions[i]['title']
+            .figcaption__text=photoCaptions[i]['text']
   
-  .testimonials-wrapper.text-theme-image
-    h2.mb70 What our clients say
+  section.testimonials-wrapper.theme-image
+    h2.mb70.theme-image__title What our clients say
     
     .testimonials.row
       -
@@ -185,3 +185,50 @@ main.main.wrapped.block
               b.testimonials__item-author=testimonialsContent[index]['author']
               i.testimonials__item-company=testimonialsContent[index]['company']
   
+  section.contact-info.theme-canvas.column
+    h2.theme-canvas__title Contact Us
+    p.mt30.mb70.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.
+    
+    .contact-info__connection-type-container.row.text-center.mb70
+      .contact-info__connection-type-item
+        i.icon.fa.fa-map-marker.contact-info__icon
+        .contact-info__text 4321 California St,#[br]San Francisco, CA 12345
+      
+      .contact-info__connection-type-item
+        i.icon.fa.fa-envelope-o.contact-info__icon
+        .contact-info__text info@company.com
+        
+      .contact-info__connection-type-item
+        i.icon.fa.fa-phone.contact-info__icon
+        .contact-info__text +1 123 456 1234
+        .contact-info__text +1 321 456 1234
+    
+    .contact-info__feedback
+      h3.theme-canvas__title.mt30 Leave us a message
+      form(action="some.php", method="post", name="contact_form").form
+        .row
+          input(type="text", placeholder="Name")
+          input(type="email", placeholder="Email")
+        textarea(placeholder="Message")
+        
+        button(class="button", type="submit") Send Message
+    
+    .contact-info__socials
+      h3.theme-canvas__title Follow us
+      -
+         var classToAddressMap = {
+          'fa-facebook': 'https://ru-ru.facebook.com/',
+          'fa-twitter': 'https://twitter.com/',
+          'fa-dribbble': 'https://dribbble.com/',
+          'fa-github': 'https://github.com/',
+          'fa-instagram': 'https://www.instagram.com/',
+          'fa-linkedin': 'https://linkedin.com'
+        };
+      
+      each address, className in classToAddressMap
+        - var fullClassName = 'icon fa ' + className;
+        a(href=address)
+          i(class=fullClassName)
+              

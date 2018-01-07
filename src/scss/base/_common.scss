@@ -1,14 +1,33 @@
 @import "vars";
+@import "mixins";
 
 body {
   background-color: #eee;
   box-sizing: border-box;
 }
 
+.list {
+  list-style: none;
+}
+
+.link {
+  @include reset-link;
+  cursor: pointer;
+  &:hover {
+    color: $orange;
+  }
+}
+
 .row {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 img {
@@ -29,7 +48,7 @@ img {
 }
 
 .block {
-  & > div {
+  & > section {
     $paddingVal: 120px;
     padding-top: $paddingVal;
     padding-bottom: $paddingVal;

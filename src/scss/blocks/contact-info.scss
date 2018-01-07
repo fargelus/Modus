@@ -1,0 +1,16 @@
+.contact-info {
+  &__icon.icon {
+    font-size: 22px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  &__connection-type-container {
+    justify-content: space-between;
+  }
+
+  &__connection-type-item {
+    // max-width: 200px;
+    margin-right: 90px;
+  }
+}

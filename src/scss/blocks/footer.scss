@@ -1,0 +1,11 @@
+.footer {
+  $paddingVal: 30px;
+  padding-top: $paddingVal;
+  padding-bottom: $paddingVal;
+  background-color: #333;
+  color: #777;
+
+  &__link {
+    color: #999;
+  }
+}
