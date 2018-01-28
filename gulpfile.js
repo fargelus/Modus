@@ -14,18 +14,18 @@ const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
 const del = require('del');
-const fs = require('fs');
 
 const paths = {
   dest: './build',
+  destAll: './build/**/*.*',
 
-  pug: {
+  views: {
     src: 'src/pug/index.pug',
     all: 'src/pug/**/*.pug'
   },
 
   styles: {
-    src: 'src/scss/**/*.scss'
+    all: 'src/scss/**/*.scss'
   },
 
   images: {
@@ -39,25 +39,23 @@ const paths = {
 
 // ********* Tasks ***********
 gulp.task('clean', () => {
-  if (fs.existsSync(paths.dest)) {
-    del([paths.dest]);
-  }
+    return del([paths.dest]);
 });
 
-gulp.task('pug', () => {
-  return gulp.src(paths.pug.src)
+gulp.task('views', () => {
+  return gulp.src(paths.views.src)
     .pipe(pug())
     .pipe(gulp.dest(paths.dest))
     .pipe(reload({stream:true}));
 });
 
-gulp.task('scss', () => {
-  return gulp.src(paths.styles.src)
+gulp.task('styles', () => {
+  return gulp.src(paths.styles.all)
     .pipe(sourcemaps.init())
     .pipe(scss().on('error', scss.logError))
-    .pipe(sourcemaps.write())
     .pipe(concat('app.css'))
     .pipe(cleanCSS())
+    .pipe(sourcemaps.write())
     .pipe(rename({
       basename: 'app',
       suffix: '.min'
@@ -69,26 +67,32 @@ gulp.task('scss', () => {
 // Static server
 gulp.task('browserSync', () => {
     browserSync.init({
-        server: {
-            baseDir: paths.dest
-        }
+        server: paths.dest
     });
+
+    browserSync.watch(paths.destAll).on('change', browserSync.reload);
 });
 
 gulp.task('watch', () => {
-  gulp.watch(paths.pug.all, ['pug']);
-  gulp.watch(paths.styles.src, ['scss']);
-  gulp.watch(paths.images.src, ['imagemin']);
+  gulp.watch(paths.views.all, gulp.series('views'));
+  gulp.watch(paths.styles.all, gulp.series('styles'));
+  gulp.watch(paths.images.src, gulp.series('assets'));
 });
 
-gulp.task('imagemin', () => {
-  return gulp.src(paths.images.src)
+gulp.task('assets', () => {
+  return gulp.src(paths.images.src, {since: gulp.lastRun('assets')})
     .pipe(imagemin())
     .pipe(gulp.dest(paths.images.dest));
 });
 
-gulp.task('start', ['clean', 'pug', 'scss', 'imagemin']);
+gulp.task('start', gulp.series(
+    'clean',
+    gulp.parallel('views', 'styles', 'assets')
+  )
+);
 
-gulp.task('default', ['start', 'watch', 'browserSync']);
+gulp.task('default', gulp.series('start',
+  gulp.parallel('watch', 'browserSync'))
+);
 
 // ***********************************
