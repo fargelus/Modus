@@ -1,13 +1,19 @@
 @import "vars";
 @import "mixins";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #eee;
   box-sizing: border-box;
 }
 
-.list {
+.list-item {
   list-style: none;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .link {
@@ -48,10 +54,14 @@ img {
 }
 
 .block {
+  $paddingVal: 120px;
   & > section {
-    $paddingVal: 120px;
     padding-top: $paddingVal;
     padding-bottom: $paddingVal;
+  }
+
+  & > section:last-of-type {
+    padding-bottom: $paddingVal / 2;
   }
 }
 
