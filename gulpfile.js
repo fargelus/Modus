@@ -25,12 +25,17 @@ const paths = {
   },
 
   styles: {
-    all: 'src/scss/**/*.scss'
+    all: 'src/scss/**/*.scss',
+    src: 'src/scss/all.scss',
   },
 
   images: {
     src: 'src/imgs/*',
     dest: './build/imgs/'
+  },
+
+  scripts: {
+    all: 'src/js/*.js'
   }
 };
 
@@ -50,10 +55,9 @@ gulp.task('views', () => {
 });
 
 gulp.task('styles', () => {
-  return gulp.src(paths.styles.all)
+  return gulp.src(paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(scss().on('error', scss.logError))
-    .pipe(concat('app.css'))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write())
     .pipe(rename({
@@ -62,6 +66,14 @@ gulp.task('styles', () => {
     }))
     .pipe(gulp.dest(paths.dest))
     .pipe(reload({stream:true}));
+});
+
+gulp.task('js', () => {
+  return gulp.src(paths.scripts.all)
+    .pipe(sourcemaps.init())
+    .pipe(concat('app.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.dest));
 });
 
 // Static server
@@ -77,6 +89,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.views.all, gulp.series('views'));
   gulp.watch(paths.styles.all, gulp.series('styles'));
   gulp.watch(paths.images.src, gulp.series('assets'));
+  gulp.watch(paths.scripts.all, gulp.series('js'));
 });
 
 gulp.task('assets', () => {
@@ -85,13 +98,13 @@ gulp.task('assets', () => {
     .pipe(gulp.dest(paths.images.dest));
 });
 
-gulp.task('start', gulp.series(
+gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('views', 'styles', 'assets')
+    gulp.parallel('views', 'styles', 'assets', 'js'),
   )
 );
 
-gulp.task('default', gulp.series('start',
+gulp.task('default', gulp.series('build',
   gulp.parallel('watch', 'browserSync'))
 );
 
