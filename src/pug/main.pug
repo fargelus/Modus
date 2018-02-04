@@ -1,5 +1,5 @@
 main.main.wrapped.block
-  section.about.theme-canvas
+  section.about.theme-canvas#about
     h2.mb70.theme-canvas__title About us
     
     .about__img
@@ -36,7 +36,7 @@ main.main.wrapped.block
           each val in listNames
             li=val
   
-  section.services.theme-image
+  section.services.theme-image#services
     h2.theme-image__title Our services
     
     .services__icon-text-table.row
@@ -63,7 +63,7 @@ main.main.wrapped.block
             felis mi in tempus eleifend pellentesque 
             natoque etiam.
   
-  section.portfolio.theme-canvas
+  section.portfolio.theme-canvas#portfolio
     h2.theme-canvas__title Our portfolio
     p(class="text-center").mt30.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -113,7 +113,7 @@ main.main.wrapped.block
               
               p=textValue
               
-  section.team.theme-canvas.bg-theme-gainsboro
+  section.team.theme-canvas.bg-theme-gainsboro#team
     h2.theme-canvas__title Meet the team
     p(class="mt30 text-center").
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -147,7 +147,7 @@ main.main.wrapped.block
             .theme-canvas__title.figcaption__title=photoCaptions[i]['title']
             .figcaption__text=photoCaptions[i]['text']
   
-  section.testimonials-wrapper.theme-image
+  section.testimonials-wrapper.theme-image#testimonials
     h2.mb70.theme-image__title What our clients say
     
     .testimonials.row
@@ -185,7 +185,7 @@ main.main.wrapped.block
               b.testimonials__item-author=testimonialsContent[index]['author']
               i.testimonials__item-company=testimonialsContent[index]['company']
   
-  section.contact-info.theme-canvas.column
+  section.contact-info.theme-canvas.column#contact
     h2.theme-canvas__title Contact Us
     p.mt30.mb70.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -205,18 +205,19 @@ main.main.wrapped.block
         .contact-info__text +1 123 456 1234
         .contact-info__text +1 321 456 1234
     
-    .contact-info__feedback
-      h3.theme-canvas__title.mt30 Leave us a message
+    .contact-info__feedback.feedback
+      h3.theme-canvas__title.mt30.text-center.feedback__title Leave us a message
       form(action="some.php", method="post", name="contact_form").form
-        .row
-          input(type="text", placeholder="Name")
-          input(type="email", placeholder="Email")
-        textarea(placeholder="Message")
+        .row.form__row
+          input(type="text", placeholder="Name").form__elem
+          input(type="email", placeholder="Email").form__elem
+        textarea(placeholder="Message", rows="5").form__elem
         
-        button(class="button", type="submit") Send Message
+        button(class="button form__submit-button button--small", type="submit") Send Message
     
     .contact-info__socials
-      h3.theme-canvas__title Follow us
+      h3.theme-canvas__title.text-center Follow us
+      ul
       -
          var classToAddressMap = {
           'fa-facebook': 'https://ru-ru.facebook.com/',
@@ -229,6 +230,7 @@ main.main.wrapped.block
       
       each address, className in classToAddressMap
         - var fullClassName = 'icon fa ' + className;
-        a(href=address)
-          i(class=fullClassName)
+        li.list-item
+          a(href=address, class="social-link")
+            i(class=fullClassName)
               

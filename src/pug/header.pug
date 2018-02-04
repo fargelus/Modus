@@ -2,7 +2,7 @@ header.header.wrapped
   nav.prior-nav.bg-theme-ground
     a.logo <i class="icon fa fa-paper-plane-o"></i>Modus
 
-    ul.list
+    ul
       - 
         var listNames = {
           'About': '#about',
@@ -13,8 +13,8 @@ header.header.wrapped
           'Contact': '#contact'
           };
       each address, name in listNames
-        li.prior-nav__menu-item
-          a(href=address).link=name
+        li.list-item
+          a(href=address).link.js-nav-link=name
 
   .intro
     h1 We are 
