@@ -218,19 +218,19 @@ main.main.wrapped.block
     .contact-info__socials
       h3.theme-canvas__title.text-center Follow us
       ul
-      -
-         var classToAddressMap = {
-          'fa-facebook': 'https://ru-ru.facebook.com/',
-          'fa-twitter': 'https://twitter.com/',
-          'fa-dribbble': 'https://dribbble.com/',
-          'fa-github': 'https://github.com/',
-          'fa-instagram': 'https://www.instagram.com/',
-          'fa-linkedin': 'https://linkedin.com'
-        };
+        -
+          var classToAddressMap = {
+            'fa-facebook': 'https://ru-ru.facebook.com/',
+            'fa-twitter': 'https://twitter.com/',
+            'fa-dribbble': 'https://dribbble.com/',
+            'fa-github': 'https://github.com/',
+            'fa-instagram': 'https://www.instagram.com/',
+            'fa-linkedin': 'https://linkedin.com'
+          };
       
-      each address, className in classToAddressMap
-        - var fullClassName = 'icon fa ' + className;
-        li.list-item
-          a(href=address, class="social-link")
-            i(class=fullClassName)
+        each address, className in classToAddressMap
+          - var fullClassName = 'icon fa ' + className;
+          li.list-item
+            a(href=address, class="social-link")
+              i(class=fullClassName)
               

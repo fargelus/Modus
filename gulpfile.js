@@ -2,6 +2,7 @@
 const gulp = require('gulp');
 
 const pug = require('gulp-pug');
+const w3cValidation = require('gulp-w3c-html-validation');
 
 const scss = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -51,6 +52,7 @@ gulp.task('views', () => {
   return gulp.src(paths.views.src)
     .pipe(pug())
     .pipe(gulp.dest(paths.dest))
+    .pipe(w3cValidation())
     .pipe(reload({stream:true}));
 });
 
@@ -100,7 +102,7 @@ gulp.task('assets', () => {
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('views', 'styles', 'assets', 'js'),
+    gulp.parallel('views', 'styles', 'assets', 'js')
   )
 );
 
