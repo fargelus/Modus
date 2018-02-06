@@ -1,4 +1,7 @@
 .prior-nav {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
