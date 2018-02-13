@@ -14,28 +14,28 @@
       img {
         height: 100%;
       }
-
-      &:hover {
-        .cards-deck__item-info {
-          visibility: visible;
-        }
-      }
     }
+  }
+}
 
-    &__item-info {
-      visibility: hidden;
-      position: absolute;
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      opacity: .66;
-    }
+.popup-block {
+  display: none;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__text {
+    margin-top: 10px;
   }
 }

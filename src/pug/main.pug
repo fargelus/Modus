@@ -86,8 +86,8 @@ main.main.wrapped.block
           .cards-deck__item
             img(src=imgSrc, width="600", height="420", alt="some stuff")
             
-            .cards-deck__item-info.theme-image
-              h4.theme-image__title Project title
+            .popup-block.bg-theme-dark.theme-image
+              h4.theme-image__title.popup-block__title Project title
               -
                 var textValue = '';
                 switch (n) {
@@ -111,7 +111,7 @@ main.main.wrapped.block
                     break;
                 }
               
-              p=textValue
+              p.popup-block__text=textValue
               
   section.team.theme-canvas.bg-theme-gainsboro#team
     h2.theme-canvas__title Meet the team
