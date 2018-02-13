@@ -20,7 +20,8 @@ $(() => {
     const $prior_nav = $('.prior-nav');
     $(window).scroll(function() {
       const scrool_value = $(this).scrollTop();
-      if (scrool_value >= 200) {
+      const scroll_step = 40;
+      if (scrool_value >= 5 * scroll_step) {
         $prior_nav.fadeIn();
       } else {
         $prior_nav.fadeOut();
