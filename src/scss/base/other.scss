@@ -1,0 +1,9 @@
+.smooth-up {
+  transform: translateY(-50%);
+  transition: transform .3s ease-out;
+}
+
+.smooth-down {
+  transform: translateY(100%);
+  transition: transform .4s ease-out;
+}
