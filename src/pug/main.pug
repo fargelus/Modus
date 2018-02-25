@@ -75,14 +75,13 @@ main.main.wrapped.block
           var tabLinkNames = ['All', 'Web Design',
           'Web Development', 'Branding'];
         each val in tabLinkNames
-          button.button.button--tab.tabs__button=val
+          button.button.button--tab.tabs__button.js-button--tab=val
       
       .cards-deck.row
         -
           var n = 0, imageNumber = 8, base = 'portfolio_0';
         while ++n < (imageNumber + 1)
           - var imgSrc = './imgs/' + base + n + '.jpg';
-          //- - var classname = 'cards-deck__item-' + n;
           .cards-deck__item
             img(src=imgSrc, width="600", height="420", alt="some stuff")
             
@@ -111,7 +110,7 @@ main.main.wrapped.block
                     break;
                 }
               
-              p.popup-block__text=textValue
+              p.popup-block__text.js-tab-anchor=textValue
               
   section.team.theme-canvas.bg-theme-gainsboro#team
     h2.theme-canvas__title Meet the team
